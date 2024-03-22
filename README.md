@@ -1,6 +1,6 @@
 # Image
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+Upload de imagem com barra de progresso em [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.1.
 
 ## Development server
 
