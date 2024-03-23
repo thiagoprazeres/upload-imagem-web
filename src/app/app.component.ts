@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  private baseUrl = 'https://upload-imagem-api.azurewebsites.net';
+  private baseUrl = 'http://localhost:8080';
   @ViewChild("currentImage", { static: false })
   currentImage!: ElementRef;
 

@@ -9,4 +9,8 @@
   <p>{{progress}}%</p>
   <h4>{{message.originalFilename}}</h4>
   <p>{{message.contentType + " - " + message.size + "KB"}}</p>
+
+  @if (message.originalFilename !== '') {
+    <p><img [src]="'https://cafeinacommons.blob.core.windows.net/images/' + message.originalFilename" [alt]="message.originalFilename"></p>
+  }
 </form>
