@@ -24,7 +24,6 @@ export class AppComponent {
   constructor(private http: HttpClient) { }
 
   uploadImage() {
-    console.log('nativeElement', this.currentImage?.nativeElement);
     let image: File = this.currentImage?.nativeElement.files[0];
     console.log('image', image);
     const formData: FormData = new FormData();
@@ -47,6 +46,7 @@ export class AppComponent {
         this.progress = 0;
       },
       complete: () => {
+        console.log('Enviado!');
       }
     });
     return false;

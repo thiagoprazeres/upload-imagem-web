@@ -6,11 +6,16 @@
   <div>
     <button>Enviar</button>
   </div>
-  <p>{{progress}}%</p>
-  <h4>{{message.originalFilename}}</h4>
-  <p>{{message.contentType + " - " + message.size + "KB"}}</p>
-
-  @if (message.originalFilename !== '') {
-    <p><img [src]="'https://cafeinacommons.blob.core.windows.net/images/' + message.originalFilename" [alt]="message.originalFilename"></p>
-  }
 </form>
+
+<p style="text-align: center;">{{progress}}%</p>
+<hr [style]="'width: '+progress+'%;'">
+
+@if (message.originalFilename !== '') {
+<div>
+  <img [src]="'https://cafeinacommons.blob.core.windows.net/images/' + message.originalFilename"
+    [alt]="message.originalFilename" style="width: 100%;">
+    <b>{{message.originalFilename}}</b><br>
+    {{message.contentType + " - " + message.size + "KB"}}
+</div>
+}
