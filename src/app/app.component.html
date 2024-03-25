@@ -1,21 +1,30 @@
-<form method="post" enctype="multipart/form-data" (submit)="uploadImage()">
+<div class="container p-3">
+  <h1 class="text-4xl">Upload de imagens</h1>
+  <form method="post" enctype="multipart/form-data" (submit)="uploadImage()">
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Escolha a imagem para carregar</span>
+      </div>
+      <input type="file" id="image" name="image" accept="image/*"
+        class="file-input file-input-bordered w-full max-w-xs" />
+    </label>
+    <div class="mt-3">
+      <button class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
   <div>
-    <label for="image">Escolha a imagem para carregar</label>
-    <input type="file" id="image" name="image" accept="image/*" #currentImage required />
+    <progress class="progress progress-secondary w-full" value="0" [max]="progress"></progress>
+    <p style="text-align: center;">
+      {{progress}}%<br>
+      Carregando...
+    </p>
   </div>
-  <div>
-    <button>Enviar</button>
-  </div>
-</form>
-
-<p style="text-align: center;">{{progress}}%</p>
-<hr [style]="'width: '+progress+'%;'">
-
+</div>
 @if (message.originalFilename !== '') {
 <div>
   <img [src]="'https://cafeinacommons.blob.core.windows.net/images/' + message.originalFilename"
     [alt]="message.originalFilename" style="width: 100%;">
-    <b>{{message.originalFilename}}</b><br>
-    {{message.contentType + " - " + message.size + "KB"}}
+  <b>{{message.originalFilename}}</b><br>
+  {{message.contentType + " - " + message.size + "KB"}}
 </div>
 }
